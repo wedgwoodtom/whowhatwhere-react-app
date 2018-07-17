@@ -1,0 +1,69 @@
+/**
+ * Window
+ */
+
+$window-focus-font-size: 20rem;
+
+.window {}
+
+.window__container {
+    position: relative;
+    max-width: 40em;
+    margin: auto;
+    @include respond-max($global-screen-sm) { padding-top: $global-guttering; }
+}
+
+.window__outer {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    @include respond-min($global-screen-sm) { height: 100%; }
+}
+
+.window__inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    padding: $global-guttering*5 $global-guttering;
+    @include respond-max($global-screen-sm) { padding: $global-guttering $global-guttering 0; }
+}
+
+.window__focus {
+    -webkit-appearance: none;
+    border: 0;
+    background-color: transparent;
+    font-size: $window-focus-font-size;
+    color: white;
+    margin: 0 auto $global-guttering;
+    @include respond-max($global-screen-sm) { font-size: $window-focus-font-size/2; }
+}
+
+.window__focus--sm { 
+    font-size: $window-focus-font-size/2; 
+    @include respond-max($global-screen-sm) { font-size: $window-focus-font-size/5; }
+}
+
+.window__form-control {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: $global-guttering/2 $global-guttering/1.2;
+    background-color: $brand-white;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10em;
+    color: $brand-primary;
+    box-shadow: 0px 0px 100px 5px rgba($brand-white, .25);
+    @include respond-max($global-screen-sm) { max-width: 200px; }
+    &:focus { outline: none; }
+}
+
+.window__form-control--push { 
+    margin: $global-guttering*2 0; 
+    @include respond-max($global-screen-sm) { margin: $global-guttering 0; }
+}
+
+.window__form-control--wide { max-width: 320px; }

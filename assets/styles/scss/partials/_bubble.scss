@@ -1,0 +1,177 @@
+/**
+ * Bubble
+ */
+
+$bubble-red: #EF2F2F;
+$bubble-pink: #e91e63;
+$bubble-green: #00af16;
+$bubble-blue: #1e88ff;
+
+$bubble-input-border-radius: 10rem;
+
+.bubble {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    font-size: $global-font-size-lg;
+    will-change: transform;
+    &:before, &:after {
+        content: "";
+        position: absolute;
+    }
+    &:before {
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(ellipse at 50% 0%, transparent, rgba($brand-black, 0.1));
+        background-image: linear-gradient(to bottom, rgba($brand-black, 0) 0%, rgba($brand-black,0.1) 85%);
+        bottom: 2.5%;
+        border-radius: 50%;
+    }
+    &:after {
+        top: 5px;
+        width: 55%;
+        height: 30%;
+        background-image: linear-gradient(to bottom, rgba($brand-white, .5) 0%, rgba($brand-white, 0) 80%);
+        left: 22.5%;
+        border-radius: 50%;
+    }
+    @include guttering;
+}
+
+.bubble--lg {
+    width: 40rem;
+    height: 40rem;
+    .bubble__desc { font-size: $global-font-size-base; }
+    @include respond-max($global-screen-sm) {
+        width: 25rem;
+        height: 25rem;
+        .bubble__desc { font-size: $global-font-size-sm; }
+    }
+}
+
+.bubble--sm {
+    width: 10rem;
+    height: 10rem;
+    font-size: 2.2rem;
+    &:before { bottom: 5%; }
+    &:after { top: 2.5px; }
+    .bubble__desc { font-size: $global-font-size-sm; }
+    @include respond-max($global-screen-sm) {
+        width: 8rem;
+        height: 8rem;
+        font-size: 1.8rem;
+        .bubble__desc { font-size: $global-font-size-xs; }
+    }
+}
+
+.bubble--timer {
+    background-color: rgba(mix($brand-white, $bubble-red, .15), .85);
+    position: absolute;
+    right: 18%;
+    @include respond-max($global-screen-sm) { right: 22%; }
+    @include respond-max($global-screen-xs) { 
+        margin-top: -1.2rem;
+        right: 15%; 
+    }
+}
+
+.bubble--score {
+    background-color: rgba(mix($brand-white, $bubble-green, .15), .85);
+    position: absolute;
+    left: 22.5%;
+    margin-top: -5%;
+    @include respond-max($global-screen-sm) { left: 30%; }
+    @include respond-max($global-screen-xs) { left: 20%; }
+}
+
+.bubble--personalbest {
+    background-color: rgba(mix($brand-white, $bubble-pink, .15), .85);
+    position: absolute;
+    left: 12%;
+    margin-top: $global-guttering;
+    @include respond-max($global-screen-sm) { left: 18%; }
+    @include respond-max($global-screen-xs) { left: 8%; }
+}
+
+.bubble--focus {
+    background-color: $bubble-blue;
+    z-index: -1;
+}
+
+.bubble--input {
+    padding: $global-guttering/2 $global-guttering/1.2;
+    -webkit-appearance: none;
+    background-color: $bubble-pink;
+    color: $brand-white;
+    border: none;
+    border-radius: $bubble-input-border-radius;
+    transition: transform .2s ease-in-out;
+    @include respond-max($global-screen-sm) { 
+        padding: $global-guttering/2.5 $global-guttering/1.2;
+        font-size: $global-font-size-sm;
+    }
+    &:hover {
+        transform: scale(1.05,1.05);
+        transition: transform .2s ease-in-out;
+    }
+    &:before {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        border-radius: $bubble-input-border-radius;
+    }
+    &:after {
+        top: 2.5px;
+        width: 90%;
+        height: 20px;
+        background-image: linear-gradient(to bottom,rgba($brand-white,.5) 0%,rgba($brand-white,0) 80%);
+        left: 5%;
+        border-radius: $bubble-input-border-radius;
+    }
+}
+
+.bubble__inner { 
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bubble__inner--pad { padding: $global-guttering; }
+
+.bubble__title {
+    line-height: $global-line-height-xxs;
+    -webkit-appearance: none;
+    border: 0;
+    background-color: transparent;
+    font-size: 12rem;
+    font-weight: bold;
+    color: $brand-white;
+    margin: auto;
+    top: -.25rem;
+    position: relative;
+    @include respond-max($global-screen-sm) { font-size: 8rem; }
+}
+
+.bubble__desc { 
+    line-height: $global-line-height-sm;
+    margin-bottom: 0; 
+}
+
+.bubble__desc--offset-top {
+    position: absolute;
+    top: 20%;
+}
+.bubble__desc--offset-bottom {
+    position: absolute;
+    top: 70%;
+}
+
+.bubble__desc--constrained {
+    position: absolute;
+    width: 60%;
+    margin: auto;
+    display: block;
+    left: 20%;
+} 
