@@ -108,20 +108,20 @@ class NumberRush extends Component {
      * @return
      */
     startTimer = () => {
-        this.remainingTimer = setInterval(() => {
-            let remainingTime = this.state.remainingTime - 1000;
-            if(remainingTime < 10000 && !this.state.mute) {
-                this.playSound(SOUNDS.beep);
-            }
-            if(remainingTime < 0) {
-                if(!this.state.mute) this.stopSound(SOUNDS.beep);
-                this.endGame();
-            } else {
-                this.setState({
-                    remainingTime
-                })
-            }
-        }, 1000);
+        //this.remainingTimer = setInterval(() => {
+        //    let remainingTime = this.state.remainingTime - 1000;
+        //    if(remainingTime < 10000 && !this.state.mute) {
+        //        this.playSound(SOUNDS.beep);
+        //    }
+        //    if(remainingTime < 0) {
+        //        if(!this.state.mute) this.stopSound(SOUNDS.beep);
+        //        this.endGame();
+        //    } else {
+        //        this.setState({
+        //            remainingTime
+        //        })
+        //    }
+        //}, 1000);
     };
 
     /**

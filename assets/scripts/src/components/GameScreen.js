@@ -15,7 +15,7 @@ class NumberArea extends Component {
 
     componentDidMount() {
         // Focus input on mount
-        ReactDOM.findDOMNode(this.refs.input).focus();
+        // ReactDOM.findDOMNode(this.refs.input).focus();
     };
 
     componentWillReceiveProps(nextProps) {
@@ -86,7 +86,38 @@ class NumberArea extends Component {
                                         <p className="bubble__desc bubble__desc--offset-bottom bubble__desc--constrained">{ currentNumber.questionLanguage }</p>
                                     </div>
                                 </div>
-                                <input ref="input" type="text" className="window__form-control window__form-control--push window__form-control--wide zero-bottom" onKeyUp={ this.handleKeyUp } placeholder="Translate the number above in German" autofocus></input>
+                                <div className="bubble--answer-row ">
+                                    <div ref="answer1" className="bubble bubble--sm bubble--answer">
+                                        <div className="bubble__inner">
+                                            <h3 className="bubble__desc">Answer 1</h3>
+                                        </div>
+                                    </div>
+
+                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
+                                        <div className="bubble__inner">
+                                            <h3 className="bubble__desc">Answer 2</h3>
+                                        </div>
+                                    </div>
+
+                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
+                                        <div className="bubble__inner">
+                                            <h3 className="bubble__desc">Answer 3</h3>
+                                        </div>
+                                    </div>
+
+                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
+                                        <div className="bubble__inner">
+                                            <h3 className="bubble__desc">Answer 4</h3>
+                                        </div>
+                                    </div>
+
+                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
+                                        <div className="bubble__inner">
+                                            <h3 className="bubble__desc">Answer 5</h3>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>

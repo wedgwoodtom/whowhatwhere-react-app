@@ -16,6 +16,9 @@ My first experimentation with React.js and ServiceWorker: A simple "against the 
 * Script testing: `npm run js:test`
 * Script continuous testing: `npm run js:test_watch`
 
+* Just  npm run css:build
+
+
 ## For unlucky Windows fellows
 * Have Python 2.7 installed and reachable from the path
 * If you still have errors, run in a command window started as administrator

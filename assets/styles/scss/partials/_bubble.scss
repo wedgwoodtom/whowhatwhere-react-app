@@ -6,6 +6,7 @@ $bubble-red: #EF2F2F;
 $bubble-pink: #e91e63;
 $bubble-green: #00af16;
 $bubble-blue: #1e88ff;
+$bubble-orange: #ffb454;
 
 $bubble-input-border-radius: 10rem;
 
@@ -88,12 +89,26 @@ $bubble-input-border-radius: 10rem;
 }
 
 .bubble--personalbest {
-    background-color: rgba(mix($brand-white, $bubble-pink, .15), .85);
+    background-color: rgba(mix($brand-white, $bubble-green, .15), .85);
     position: absolute;
     left: 12%;
     margin-top: $global-guttering;
     @include respond-max($global-screen-sm) { left: 18%; }
     @include respond-max($global-screen-xs) { left: 8%; }
+}
+
+.bubble--answer-row {
+    display: inline-flex;
+}
+
+.bubble--answer {
+    background-color: rgba(mix($brand-white, $bubble-orange, .15), .85);
+    //position: absolute;
+    //left: 10%;
+    //bottom: 8%;
+    margin-top: -4%;
+    //@include respond-max($global-screen-sm) { left: 18%; }
+    //@include respond-max($global-screen-xs) { left: 8%; }
 }
 
 .bubble--focus {

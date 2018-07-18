@@ -40,12 +40,17 @@ class ScoreBoard extends Component {
                         { score }
                     </div>
                 </div>
+
                 <div ref="timer" className="bubble bubble--sm bubble--timer">
                     <div className="bubble__inner">
                         <h3 className="bubble__desc">Timer</h3>
                         <span className={ timerClass }>{ timer / 1000 }s</span>
                     </div>
                 </div>
+
+
+
+
             </scoreboard>
         )
     };
