@@ -11,6 +11,7 @@ import ScoreBoard from './ScoreBoard';
 import ModeSwitcher from './ModeSwitcher';
 import GameControls from './GameControls';
 import AnswerBubble from './AnswerBubble';
+import Question from './Question';
 
 class NumberArea extends Component {
 
@@ -52,6 +53,7 @@ class NumberArea extends Component {
      * @return
      */
     handleKeyUp = (event) => {
+        // THIS is the part where the answer is submitted
         let answer = this.props.numberProps.answer;
         if(event.which == 13) {
             answer(event.currentTarget.value, this.props.numberProps.currentNumber);
@@ -61,9 +63,12 @@ class NumberArea extends Component {
     render() {
         const { controls } = this.props;
         const { modes, changeMode, currentMode } = this.props.modeProps;
-        const { currentNumber, answer, answerAttempts } = this.props.numberProps; this.props.numberProps.currentNumber.digits = 2500;
+        const { currentNumber, answer, answerAttempts } = this.props.numberProps;
+        this.props.numberProps.currentNumber.digits = 2500;
         const { score, personalBest, remainingTime } = this.props.scoreboardProps;
-    
+
+        //alert(this.props.questionProps.question1);
+        const { questionProps } = this.props.questionProps;
         return (
             <screen>
                 <header className="header fade-in">
@@ -74,7 +79,12 @@ class NumberArea extends Component {
                     <div className="window__container">
                         <div className="window__outer">
                             <div className="window__inner">
+                                {/*
                                 <ScoreBoard score={ score } personalBest={ personalBest } timer={ remainingTime } />
+                                 */}
+                                <Question question1={this.props.questionProps.question1}
+                                          question2={this.props.questionProps.question2}
+                                          timer={ remainingTime }/>
                                 <div className="bubble bubble--lg bubble--focus">
                                     <div ref="number" className="bubble__inner bubble__inner--pad">
                                         <h2 className="bubble__title zero-bottom">{ currentNumber.digits }</h2>
@@ -82,12 +92,20 @@ class NumberArea extends Component {
                                 </div>
                                 <div className="bubble--answer-row ">
 
-                                    <AnswerBubble answer="Delaware"/>
-                                    <AnswerBubble answer="Lexington"/>
-                                    <AnswerBubble answer="The Rhone"/>
-                                    <AnswerBubble answer="Rubicon"/>
+                                    <AnswerBubble answer={this.props.questionProps.answer1}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer2}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer3}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer4}/>
+
+                                    {/* Comment like this MFer
+                                     <input ref="input" type="text" className="window__form-control
+                                     window__form-control--push window__form-control--wide zero-bottom"
+                                     onKeyUp={ this.handleKeyUp } placeholder="Translate the number above in German" autofocus></input>
+                                     */}
 
                                 </div>
+                                <p/>
+                                <p className="zero-bottom">- Select the best match -</p>
                             </div>
                         </div>
                     </div>

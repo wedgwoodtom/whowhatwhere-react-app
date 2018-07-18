@@ -26,6 +26,9 @@ class AnswerBubble extends Component {
         e.preventDefault();
         console.log('The link was clicked.');
         alert(this.state.answer);
+
+        //let me = ReactDOM.findDOMNode(this);
+        //addAnimation(me, 'pulse');
     }
 
     render() {
@@ -37,6 +40,7 @@ class AnswerBubble extends Component {
         const handleMouseLeave = () => this.setState({hovering : false});
 
         return (
+            <answer>
                 <div ref="answer2" className="bubble bubble--sm bubble--answer"
                      style={style}
                      onMouseEnter={handleMouseEnter}
@@ -47,6 +51,7 @@ class AnswerBubble extends Component {
                         <h3 className="bubble__desc">{this.state.answer}</h3>
                     </div>
                 </div>
+            </answer>
         );
     }
 

@@ -446,13 +446,32 @@ class NumberRush extends Component {
             remainingTime: this.state.remainingTime
         };
 
+        let questionProps = {
+            question1: 'George Washington',
+            question2: 'Crossed',
+            answer1: 'Sleepless in Seattle',
+            answer2: 'Delaware',
+            answer3: 'Lexington',
+            answer4: 'Rubicon',
+            actualAnswer: 'Delaware'
+
+            // From service, manage these in the App
+            //questions: questionList,
+            //currentQuestion: 0
+        };
+
         return (
             <app className="window">
                 {(!this.state.gameStarted) && (
                     <StartScreen previousScore={ this.state.previousScore } personalBest={ this.state.personalBest } startGame={ this.startGame } />
                 )}
                 {(this.state.gameStarted) && (
-                    <GameScreen modeProps={ modeProps } numberProps={ numberProps } scoreboardProps={ scoreboardProps } controls={ this.state.controls } />
+                    <GameScreen modeProps={ modeProps }
+                                numberProps={ numberProps }
+                                scoreboardProps={ scoreboardProps }
+                                controls={ this.state.controls }
+                                questionProps={ questionProps}
+                    />
                 )}
             </app>
         );
