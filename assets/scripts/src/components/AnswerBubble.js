@@ -13,7 +13,8 @@ class AnswerBubble extends Component {
 
         this.state = {
             hovering: false,
-            answer: props.answer
+            answer: props.answer,
+            handler: props.handler
         }
 
         // This binding is necessary to make `this` work in the callback
@@ -25,8 +26,9 @@ class AnswerBubble extends Component {
     handleClick(e) {
         e.preventDefault();
         console.log('The link was clicked.');
-        alert(this.state.answer);
+        //alert(this.state.answer);
 
+        this.state.handler(this.state.answer, 'asda');
         //let me = ReactDOM.findDOMNode(this);
         //addAnimation(me, 'pulse');
     }

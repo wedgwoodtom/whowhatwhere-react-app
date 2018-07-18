@@ -24,7 +24,7 @@ class StartScreen extends Component {
                             )}
                         </ul>
                         <button ref="startButton" className="bubble bubble--input window__form-control window__form-control--push" onClick={ startGame }>Start</button>
-                        <p className="zero-bottom"><small>Brought to you by the good CTS folks at LabWeek</small></p>
+                        <p className="zero-bottom"><small>Brought to you by the good folks at CTS LabWeek</small></p>
                     </div>
                 </div>
             </screen>

@@ -69,6 +69,7 @@ class NumberArea extends Component {
 
         //alert(this.props.questionProps.question1);
         const { questionProps } = this.props.questionProps;
+        const answerHandler = this.props.questionProps.handleAnswerSelected
         return (
             <screen>
                 <header className="header fade-in">
@@ -91,11 +92,10 @@ class NumberArea extends Component {
                                     </div>
                                 </div>
                                 <div className="bubble--answer-row ">
-
-                                    <AnswerBubble answer={this.props.questionProps.answer1}/>
-                                    <AnswerBubble answer={this.props.questionProps.answer2}/>
-                                    <AnswerBubble answer={this.props.questionProps.answer3}/>
-                                    <AnswerBubble answer={this.props.questionProps.answer4}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer1} handler={answerHandler}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer2} handler={answerHandler}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer3} handler={answerHandler}/>
+                                    <AnswerBubble answer={this.props.questionProps.answer4} handler={answerHandler}/>
 
                                     {/* Comment like this MFer
                                      <input ref="input" type="text" className="window__form-control

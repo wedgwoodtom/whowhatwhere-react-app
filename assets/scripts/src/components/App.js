@@ -29,7 +29,7 @@ const SOUNDS = {
 };
 
 
-class NumberRush extends Component {
+class WhoWhatWhere extends Component {
 
     constructor(props) {
         super(props);
@@ -51,15 +51,15 @@ class NumberRush extends Component {
         let SAVED_STATE = null;
 
         // If there is already a saved state in local storage
-        if(localStorage.getItem('NumberRushState') !== null) {
-            let parsedState = JSON.parse(localStorage.NumberRushState);
+        if(localStorage.getItem('WhoWhatWhereState') !== null) {
+            let parsedState = JSON.parse(localStorage.WhoWhatWhereState);
 
             // And its cache is not out of date, use the saved state
             if(parsedState.cache && parsedState.cache === CACHE_NUMBER) {
                 SAVED_STATE = parsedState;
             } else {
                 // Otherwise clear the out of date version
-                localStorage.removeItem('NumberRushState');
+                localStorage.removeItem('WhoWhatWhereState');
             }
         }
         
@@ -71,7 +71,7 @@ class NumberRush extends Component {
     };
 
     componentDidUpdate(prevProps, prevState) {
-        localStorage.NumberRushState = JSON.stringify(this.state);
+        localStorage.WhoWhatWhereState = JSON.stringify(this.state);
     };
 
     /**
@@ -108,20 +108,20 @@ class NumberRush extends Component {
      * @return
      */
     startTimer = () => {
-        //this.remainingTimer = setInterval(() => {
-        //    let remainingTime = this.state.remainingTime - 1000;
-        //    if(remainingTime < 10000 && !this.state.mute) {
-        //        this.playSound(SOUNDS.beep);
-        //    }
-        //    if(remainingTime < 0) {
-        //        if(!this.state.mute) this.stopSound(SOUNDS.beep);
-        //        this.endGame();
-        //    } else {
-        //        this.setState({
-        //            remainingTime
-        //        })
-        //    }
-        //}, 1000);
+        this.remainingTimer = setInterval(() => {
+            let remainingTime = this.state.remainingTime - 1000;
+            if(remainingTime < 10000 && !this.state.mute) {
+                this.playSound(SOUNDS.beep);
+            }
+            if(remainingTime < 0) {
+                if(!this.state.mute) this.stopSound(SOUNDS.beep);
+                this.endGame();
+            } else {
+                this.setState({
+                    remainingTime
+                })
+            }
+        }, 1000);
     };
 
     /**
@@ -137,8 +137,8 @@ class NumberRush extends Component {
         ];
 
         // Don't override controls if user has a saved state already
-        if(localStorage.getItem('NumberRushState') !== null) {
-            let savedState = JSON.parse(localStorage.NumberRushState);
+        if(localStorage.getItem('WhoWhatWhereState') !== null) {
+            let savedState = JSON.parse(localStorage.WhoWhatWhereState);
             controls = merge(controls, savedState.controls);
         }
 
@@ -343,24 +343,14 @@ class NumberRush extends Component {
     };
 
     /**
-     * Replace special characters within a string to standard characters
-     * @param  {String} string String to run function against
-     * @return {String}        String with standard characters 
-     */
-    removeDiacritics = (string) => {
-        diacriticMap.forEach(function(element, index) {
-            string = string.replace(diacriticMap[index].letters, diacriticMap[index].base);
-        });
-        
-        return string;
-    };
-
-    /**
      * Handle what happens if a user answers the question correctly
      * @param  {String} answer User inputted answer
      * @return
      */
     handleSuccess = (answer) => {
+        // TODO: Get the next question
+
+
         // Get new number
         let number = this.getNewNumber();
         // Increment score 
@@ -399,31 +389,19 @@ class NumberRush extends Component {
         }
     };
 
-    /**
-     * Determines whether a given response to a question is correct or incorrect
-     * @param  {String} response The users response
-     * @param  {Object} answer   The correct answer to compare the users response to
-     * @return {Boolean}         Whether the answer is correct or incorrect
-     */
-    isCorrect = (response, answer) => {
-        let responseSanitised = response.toLowerCase();
-        let answerSanitised = answer.answerLanguage.toLowerCase();
-        return (responseSanitised === answerSanitised || responseSanitised === this.removeDiacritics(answerSanitised)) ? true : false;
-    };
 
-    /**
-     * Handle what happens when a user submits a response to a question
-     * @param  {String} response The users response
-     * @param  {Object} answer   The correct answer
-     * @return
-     */
-    handleAnswer = (response, answer) => {
-        let responseSanitised = stripHTML(response).replace(/\s+/g, '');
-
-        if (this.isCorrect(responseSanitised, answer)) {
+    handleAnswerSelected = (response, answer) => {
+        // TODO: Check the selected answer with the actual answer
+        alert(response);
+        if (response == answer) {
             this.handleSuccess(answer);
         } else if(response) {
             this.handleFailure();
+
+            // TODO: Show correct answer
+
+            // TODO: Move to next question
+
         }
     };
 
@@ -453,7 +431,8 @@ class NumberRush extends Component {
             answer2: 'Delaware',
             answer3: 'Lexington',
             answer4: 'Rubicon',
-            actualAnswer: 'Delaware'
+            actualAnswer: 'Delaware',
+            handleAnswerSelected: this.handleAnswerSelected
 
             // From service, manage these in the App
             //questions: questionList,
@@ -478,4 +457,4 @@ class NumberRush extends Component {
     };
 };
 
-export default NumberRush;
+export default WhoWhatWhere;

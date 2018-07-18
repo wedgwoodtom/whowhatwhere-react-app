@@ -1,7 +1,7 @@
 {
-  "name": "NumberRush",
+  "name": "WhoWhatWhere",
   "version": "1.0.0",
-  "description": "Number based game for learning German numbers",
+  "description": "Trivia Game",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint ./assets/scripts/src",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jshjohnson/NumberRush.git"
+    "url": "https://github.com/wedgwoodtom/whowhatwhere-react-app.git"
   },
   "keywords": [
     "react",
@@ -30,7 +30,7 @@
     "edit",
     "webpack"
   ],
-  "author": "Josh Johnson <josh@joshuajohnson.co.uk> (http://github.com/jshjohnson)",
+  "author": "Tom Patterson",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.3",

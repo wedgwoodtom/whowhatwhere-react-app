@@ -9,13 +9,6 @@ import classNames from 'classnames';
 class Question extends Component {
 
     componentWillReceiveProps(nextProps) {
-
-        //let question1 = ReactDOM.findDOMNode(this.refs.question1);
-        //addAnimation(question1, 'pulse');
-
-        //let question2 = ReactDOM.findDOMNode(this.refs.question2);
-        //addAnimation(question2, 'pulse');
-
     };
 
     render() {
