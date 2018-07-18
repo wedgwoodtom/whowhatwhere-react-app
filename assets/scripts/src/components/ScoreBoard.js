@@ -18,6 +18,7 @@ class ScoreBoard extends Component {
             let personalBest = ReactDOM.findDOMNode(this.refs.personalBest);
             addAnimation(personalBest, 'pulse');
         }
+
     };
     
     render() {
@@ -30,14 +31,12 @@ class ScoreBoard extends Component {
             <scoreboard>
                 <div ref="personalBest" className="bubble bubble--sm bubble--personalbest">
                     <div className="bubble__inner">
-                        <h3 className="bubble__desc">Best</h3>
-                        { personalBest }
+                        <h3 className="bubble__desc">George Washington</h3>
                     </div>
                 </div>
                 <div ref="score" className="bubble bubble--sm bubble--score">
                     <div className="bubble__inner">
-                        <h3 className="bubble__desc">Score</h3>
-                        { score }
+                        <h3 className="bubble__desc">Crossed</h3>
                     </div>
                 </div>
 

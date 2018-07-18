@@ -6,7 +6,7 @@ $bubble-red: #EF2F2F;
 $bubble-pink: #e91e63;
 $bubble-green: #00af16;
 $bubble-blue: #1e88ff;
-$bubble-orange: #ffb454;
+$bubble-orange: orange;
 
 $bubble-input-border-radius: 10rem;
 
@@ -171,7 +171,8 @@ $bubble-input-border-radius: 10rem;
 
 .bubble__desc { 
     line-height: $global-line-height-sm;
-    margin-bottom: 0; 
+    margin-bottom: 0;
+    font-weight: bold ;
 }
 
 .bubble__desc--offset-top {

@@ -20,7 +20,7 @@ let testAudio = document.createElement("audio");
 
 // Upping this cache will clear users' personal best scores! Use with caution
 const CACHE_NUMBER   = 10;
-const REMAINING_TIME = 60000;
+const REMAINING_TIME = 20000;
 const INCREMENT_TIME = 2000;
 const SOUNDS = {
     beep: new Audio('assets/audio/beep.mp3'),

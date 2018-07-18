@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import ScoreBoard from './ScoreBoard';
 import ModeSwitcher from './ModeSwitcher';
 import GameControls from './GameControls';
+import AnswerBubble from './AnswerBubble';
 
 class NumberArea extends Component {
 
@@ -60,7 +61,7 @@ class NumberArea extends Component {
     render() {
         const { controls } = this.props;
         const { modes, changeMode, currentMode } = this.props.modeProps;
-        const { currentNumber, answer, answerAttempts } = this.props.numberProps;
+        const { currentNumber, answer, answerAttempts } = this.props.numberProps; this.props.numberProps.currentNumber.digits = 2500;
         const { score, personalBest, remainingTime } = this.props.scoreboardProps;
     
         return (
@@ -76,46 +77,15 @@ class NumberArea extends Component {
                                 <ScoreBoard score={ score } personalBest={ personalBest } timer={ remainingTime } />
                                 <div className="bubble bubble--lg bubble--focus">
                                     <div ref="number" className="bubble__inner bubble__inner--pad">
-                                        { answerAttempts >= 3 && currentMode !== 'Cheat' &&
-                                            <p className="bubble__desc bubble__desc--offset-top bubble__desc--constrained"><strong>Clue:</strong> { this.createClue(currentNumber.answerLanguage)  }</p>
-                                        }
-                                        { currentMode === 'Cheat' &&
-                                            <p className="bubble__desc bubble__desc--offset-top bubble__desc--constrained"><strong>Answer:</strong> { currentNumber.answerLanguage }</p>
-                                        }
                                         <h2 className="bubble__title zero-bottom">{ currentNumber.digits }</h2>
-                                        <p className="bubble__desc bubble__desc--offset-bottom bubble__desc--constrained">{ currentNumber.questionLanguage }</p>
                                     </div>
                                 </div>
                                 <div className="bubble--answer-row ">
-                                    <div ref="answer1" className="bubble bubble--sm bubble--answer">
-                                        <div className="bubble__inner">
-                                            <h3 className="bubble__desc">Answer 1</h3>
-                                        </div>
-                                    </div>
 
-                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
-                                        <div className="bubble__inner">
-                                            <h3 className="bubble__desc">Answer 2</h3>
-                                        </div>
-                                    </div>
-
-                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
-                                        <div className="bubble__inner">
-                                            <h3 className="bubble__desc">Answer 3</h3>
-                                        </div>
-                                    </div>
-
-                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
-                                        <div className="bubble__inner">
-                                            <h3 className="bubble__desc">Answer 4</h3>
-                                        </div>
-                                    </div>
-
-                                    <div ref="answer2" className="bubble bubble--sm bubble--answer">
-                                        <div className="bubble__inner">
-                                            <h3 className="bubble__desc">Answer 5</h3>
-                                        </div>
-                                    </div>
+                                    <AnswerBubble answer="Delaware"/>
+                                    <AnswerBubble answer="Lexington"/>
+                                    <AnswerBubble answer="The Rhone"/>
+                                    <AnswerBubble answer="Rubicon"/>
 
                                 </div>
                             </div>
