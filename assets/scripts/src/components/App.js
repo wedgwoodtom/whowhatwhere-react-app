@@ -129,6 +129,24 @@ class WhoWhatWhere extends Component {
      * @return
      */
     startGame = () => {
+
+
+        // TODO: Enable CORS for my lambda so that I can call it here
+        fetch('https://tph3djc4zl.execute-api.us-west-2.amazonaws.com/test/highscores', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId: 'playerId1',
+                gameId: 'gameId1',
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data) );
+
+
         let controls = [
             { name: 'End', action: this.endGame, active: true },
             { name: 'Restart', action: this.restartGame, active: true },
